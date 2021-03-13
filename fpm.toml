@@ -1,0 +1,16 @@
+name = "fundamental_constants"
+version = "0.1.0"
+license = "MIT"
+author = "Vincent MAGNIN"
+maintainer = "https://github.com/vmagnin/"
+copyright = "2021 Vincent MAGNIN"
+
+
+[library]
+source-dir="src"
+
+[[test]]
+name="runTests"
+source-dir="test"
+main="main.f90"
+
