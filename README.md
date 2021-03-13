@@ -83,6 +83,8 @@ use CODATA_constants, only: c=>speed_of_light_in_vacuum
 
 You can create your own short module with a `use CODATA_constants` statement and put into it your renamed favourite constants, accordingly to what you generally need in your scientific field.
 
+Note also that the names of some constants may vary each time CODATA releases new recommended values.
+
 # Warning
 
 Be careful, don't use for production. For the moment the integrity of the data in the Fortran module has not been verified.
