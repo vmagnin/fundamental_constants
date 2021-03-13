@@ -113,3 +113,4 @@ including trailing blanks (the column is always 25 characters).
     * https://physics.nist.gov/cuu/Constants/bibliography.html
     * https://en.wikipedia.org/wiki/Committee_on_Data_for_Science_and_Technology
 * NIST website: https://physics.nist.gov/cuu/Constants/
+* If you need a more complete project around constants: https://github.com/MolSSI/QCElemental
