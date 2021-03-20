@@ -6,9 +6,31 @@ module functions
 
     private
 
-    public :: write_CODATA
+    public :: write_CODATA, insert_space
 
 contains
+
+    subroutine insert_space(string, position)
+        ! Insert a space in the string at position (in the range [1, 25])
+        integer, parameter :: length = 25
+        character(len=length), intent(inout) :: string
+        integer, intent(in) :: position
+        integer :: i
+
+        if (position > len(string)) then
+            print *, "ERROR in insert_space(): position exceeds upper bound"
+            stop
+        end if
+
+        do i = length, position, -1
+            if (i > 1) then
+                string(i:i) = string(i-1:i-1)
+            end if
+        end do
+
+        string(position:position) = " "
+    end subroutine insert_space
+
 
     subroutine write_CODATA(name, constant, left, nb_decimals, expo_out)
         character(60), intent(in) :: name

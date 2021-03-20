@@ -2,6 +2,11 @@
 All notable changes to the project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [fundamental constants]
+
+### Added
+- test/functions.f90: a subroutine `insert_space(string, position)` to insert a space in the string at position (in the range [1, 25]).
+
 ## [fundamental constants v0.2] 2021-03-20
 
 ### Added
