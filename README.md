@@ -35,6 +35,14 @@ $ fpm test
    6.0221407599999999E+023
    1.3806490000000001E-023
    1.6021766339999999E-019
+ ********* all constants ************
+alpha particle-electron mass ratio                          7294.29954142            
+alpha particle mass                                         6.6446573357E-27         
+alpha particle mass energy equivalent                       5.9719201914E-10         
+alpha particle mass energy equivalent in MeV                3727.3794066             
+alpha particle mass in u                                    4.001506179127           
+alpha particle molar mass                                   4.0015061777E-03 
+...
 ```
 
 You can use alternatively the `build.sh` script to build the `build/runTests` executable.
@@ -91,21 +99,10 @@ Be careful, don't use for production. For the moment the integrity of the data i
 
 ## TODO
 
-**The Python script could also generate a Fortran program which would generate another `allascii.txt` file, at least the two first columns, with the same formatting. We could then use a diff tool to validate the Fortran module.**
+**The Python script also generates a Fortran test program which try to print the two first columns, with the same formatting. When ready, we could then use a diff tool to validate the Fortran module.**
 
-We would need a Fortran function receiving a real value, a number of decimals and returning a `character(25)` string:
+We have now to add blanks between groups of digits.
 
-```Fortran
-character(25) get_nist_format(value, decimals)
-
-```
-and the return strings would contain those kinds of formatted numbers:
-```text
-2.4140 e-8
-299 792 458
-9.806 65
-```
-including trailing blanks (the column is always 25 characters).
 
 # References
 * Origin of this project: https://fortran-lang.discourse.group/t/physical-constants/822
