@@ -14,8 +14,6 @@ program main
     print *, Avogadro_constant
     print *, Boltzmann_constant
     print *, electron_volt
-    print *, "********* all constants ************"
-    call tests
 
     s = "4.5003878060E-10         "
     call insert_space(s, 6)
@@ -23,4 +21,12 @@ program main
     s = "2808.92113298            "
     call insert_space(s, 25)
     print *, s
+
+    s = "1234.12345678"
+    call format_digits(s)
+    print *, s
+
+    print *, "------------------------------------------------"
+    print *, "Writing the fortran_generated_????.txt test file"
+    call tests
 end program main

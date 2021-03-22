@@ -2,10 +2,17 @@
 All notable changes to the project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [fundamental constants]
+## [fundamental constants v0.3] 2021-03-22
 
 ### Added
-- test/functions.f90: a subroutine `insert_space(string, position)` to insert a space in the string at position (in the range [1, 25]).
+- test/functions.f90:
+    - a subroutine `insert_space(string, position)` to insert a space in the string at position (in the range [1, 25]).
+    - a subroutine `remove_character(string, position)`.
+    - a subroutine `format_digits(string)` to insert spaces between groups of digits.
+
+### Changed
+- test/functions.f90:
+    - improved `write_CODATA()`. The two columns are nearly identical to the CODATA format.
 
 ## [fundamental constants v0.2] 2021-03-20
 

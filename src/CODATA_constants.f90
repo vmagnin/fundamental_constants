@@ -2,7 +2,7 @@
 ! CODATA_constants.f90
 ! Automatically generated from 2018 CODATA NIST file:
 ! https://physics.nist.gov/cuu/Constants/Table/allascii.txt
-! downloaded on 2021-03-20.
+! downloaded on 2021-03-22.
 !-------------------------------------------------------------------------------
 
 module CODATA_constants

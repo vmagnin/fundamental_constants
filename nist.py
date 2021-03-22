@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 '''
 Downloads CODATA fundamental physical constants from NIST website
-and generates a Fortran module.
+and generates a Fortran module CODATA_constants.f90,
+and also a test.f90 file that can be used to validate the process.
 Contributed by Vincent MAGNIN, 2021-03-11
 MIT license
 https://github.com/vmagnin/fundamental_constants
-Last modifications: 2021-03-20
+Last modifications: 2021-03-22
 '''
 
 import argparse
@@ -49,8 +50,10 @@ def get_number_parts(xstring):
 
     return [left, right, expo]
 
-#print(get_number_parts("-7294.29954142"))
-#quit()
+
+#**************
+# Main program
+#**************
 
 # Command line arguments:
 PARSARG = argparse.ArgumentParser(description="""Downloads CODATA recommended 
@@ -105,14 +108,16 @@ f_file.write("\nmodule " + MODULE_NAME + "\n" + TABS +
              "use, intrinsic :: iso_fortran_env, only: wp=>real64\n" +
              TABS + "implicit none\n\n")
 
-# Creating a test file
+# Creating a test file that will generate a txt file from the Fortran constants:
 test_file = open("test/test.f90", "w")
 TEST_MODULE_NAME = "test"
 test_file.write("\nmodule " + TEST_MODULE_NAME + "\n" + TABS +
              "use CODATA_constants\n" + TABS +
              "use functions, only: write_CODATA\n" + TABS +
              "use, intrinsic :: iso_fortran_env, only: wp=>real64\n" +
-             TABS + "implicit none\n\ncontains\n" + TABS + "subroutine tests\n")
+             TABS + "implicit none\n\ncontains\n" +
+             "subroutine tests\ncharacter(125) :: s\n" +
+             "open(unit = 1, file = 'fortran_generated_"+str(ARGS.y[0])+".txt')\n")
 
 #-------------------------------------------------------------------------------
 # Format description of the NIST allascii.txt file:
@@ -129,18 +134,20 @@ header = True
 nb_constants = 0
 
 for line in lines_list:
-    line2 = line.replace("\n", "").strip()
+    line2 = line.replace("\n", "")
 
     if header:
+        # The Fortran test file will print the same header:
+        test_file.write("s='"+line2.rstrip()+"'\n")
+        test_file.write("write(1,'(a)') trim(s)\n")
         # Looking for the end of the header:
         if line2 == 125*'-':
             header = False
     else:
-        # Extracting the four columns
-        # (with Python the right bound is excluded):
-        quantity = line2[0:60].strip()
-        value = line2[60:85].strip()
-        uncertainty = line2[85:110].strip()
+        # Extracting the four columns (with Python the right bound is excluded):
+        quantity = line2[0:60].rstrip()
+        value = line2[60:85].rstrip()
+        uncertainty = line2[85:110].rstrip()
         unit = line2[110:]
 
         # A special 2014 case:  "{220} lattice spacing of silicon"
@@ -164,17 +171,17 @@ for line in lines_list:
         if value.find(".") == -1 and value.find("e") == -1:
             value = value + "e0"
 
-        # Test: print the value in a file
+        # Test: print the value in a txt file, trying to mimick the CODATA format:
         result = get_number_parts(value)
         print(value, result)
         left = result[0]
         right = result[1]
         expo = result[2]
-        test_file.write(TABS + "call write_CODATA('"+line2[0:60]+"', &\n" + 
-                        2*TABS +"& " +quantity+", "+str(left)+
+        test_file.write("call write_CODATA('"+line2[0:60]+"', &\n" + 
+                        TABS +"& " +quantity+", "+str(left)+
                         ", "+str(right)+", "+str(expo)+")\n")
 
-        # Fortran declaration:
+        # Fortran declaration in the CODATA_constants module:
         f_file.write(TABS + "real(wp), parameter :: " + quantity + " = " + value
                      + "_wp ! " + uncertainty + "  " + unit + "\n")
 
@@ -188,5 +195,6 @@ print(str(nb_constants)+" constants written")
 print('{}{}'.format(os.stat("src/"+F_FILE_NAME).st_size, " bytes"))
 
 # Finalizing the test file:
-test_file.write("end subroutine tests\nend module "+TEST_MODULE_NAME+"\n")
+test_file.write("close(1)\n" +
+                "end subroutine tests\nend module "+TEST_MODULE_NAME+"\n")
 test_file.close()
