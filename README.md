@@ -8,10 +8,21 @@ https://physics.nist.gov/cuu/Constants/Table/allascii.txt
 
 and generates a Fortran module in the file `src/CODATA_constants.f90`.
 
-The 2018 CODATA set contains 354 constants. Some of them, terminated by "...", can be computed from others.
+It also generates a Fortran test program which uses that module to generate a text file reproducing the two first columns, with (nearly) the same formatting as in the CODATA NIST file.
 
-# Generating the Fortran file
-## Default: all latest recommended values
+The 2018 CODATA set contains 354 constants.
+
+# Ready to use Fortran modules
+
+In the `validated_modules` directory, you will find directories for each recent CODATA sets with:
+- the corresponding `CODATA_constants.f90` module,
+- the `fortran_generated_????.txt` file generated using this module. A graphical diff tool was used to verify that the numbers printed in that file are identical to numbers in the NIST file.
+
+But please read all the present README file before using those modules.
+
+# Generating a Fortran file
+
+## Default options
 
 From the project root directory, type:
 ```bash
@@ -21,6 +32,30 @@ https://physics.nist.gov/cuu/Constants/Table/allascii.txt
 354 constants written
 34423 bytes
 ```
+
+## Options of the Python script
+
+```bash
+$ ./nist.py --help
+usage: nist.py [-h] [-y {2010,2014,2018}] [-d] [-v]
+
+Downloads CODATA fundamental physical constants from NIST website and generates a Fortran module.
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -y {2010,2014,2018}  CODATA values: 2010, 2014 or 2018
+  -d                   Delete calculated values (...)
+  -v                   Version
+
+Sources : <https://github.com/vmagnin/fundamental_constants>
+```
+
+By default latest values are downloaded. But you can force the year with the `-y` option.
+
+By default, calculated values are kept. But you can delete them with the `-d` option if you prefer to calculate them in your program, in order to have more decimals.
+
+
+# Validating the values in the Fortran module
 
 If you have the fpm Fortran Package Manager, build and launch the test:
 
@@ -41,28 +76,9 @@ $ fpm test
  Writing the fortran_generated_????.txt test file
 ```
 
+A graphical diff tool, like `meld`, can be used to compare the `fortran_generated_????.txt` text file with the NIST file, in order to validate the Fortran module. Most constants are written exactly as in the NIST file. A few constants are written differently because the NIST file don't use the classical scientific format: for example, the molar mass of carbon-12 is written 1.199 999 999 58 e-2 in our file but 11.99 999 999 58 e-3 in the NIST file. But it is quick to verify that those values are correct. Some of the values in the NIST file can be calculated from other constants and are terminated by "..." in the NIST file: note that their values in the Fortran module are not calculated, but have the same number of digits as in the NIST file.
+
 You can use alternatively the `build.sh` script to build the `build/runTests` executable.
-
-## Other options
-
-```bash
-$ ./nist.py --help
-usage: nist.py [-h] [-y {2010,2014,2018}] [-d] [-v]
-
-Downloads CODATA fundamental physical constants from NIST website and generates a Fortran module.
-
-optional arguments:
-  -h, --help           show this help message and exit
-  -y {2010,2014,2018}  CODATA values: 2010, 2014 or 2018
-  -d                   Delete calculated values (...)
-  -v                   Version
-
-Sources : <https://github.com/vmagnin/fundamental_constants>
-```
-
-By default latest values are downloaded. But you can force the year with the `-y` option.
-
-By default, calculated values are kept. But you can delete them with the `-d` option if you prefer to calculate them in your program, in order to have more decimals. 
 
 # Using the Fortran module
 
@@ -88,12 +104,6 @@ use CODATA_constants, only: c=>speed_of_light_in_vacuum
 You can create your own short module with a `use CODATA_constants` statement and put into it your renamed favourite constants, accordingly to what you generally need in your scientific field.
 
 Note also that the names of some constants may vary each time CODATA releases new recommended values.
-
-# Warning
-
-Be careful, don't use for production. For the moment the integrity of the data in the Fortran module has not been verified.
-
-**The Python script also generates a Fortran test program which prints the two first columns, with the same formatting as in the CODATA NIST file.** The `meld` diff tool can be used to compare that txt file with the NIST file, in order to validate the Fortran module. The Fortran module seems correct, but there is still a few printing errors in the txt file.
 
 
 # References
