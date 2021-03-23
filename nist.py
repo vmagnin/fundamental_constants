@@ -7,7 +7,7 @@ and also a test.f90 file that can be used to validate the process.
 Contributed by Vincent MAGNIN, 2021-03-11
 MIT license
 https://github.com/vmagnin/fundamental_constants
-Last modifications: 2021-03-22
+Last modifications: 2021-03-23
 '''
 
 import argparse
@@ -66,7 +66,7 @@ PARSARG.add_argument("-y", action="store", nargs=1, type=int,
 PARSARG.add_argument("-d", action="store_true",
                      help="Delete calculated values (...)")
 PARSARG.add_argument("-v", action="version",
-                     version="%(prog)s v0.1 MIT license", help="Version")
+                     version="%(prog)s v1.0 MIT license", help="Version")
 ARGS = PARSARG.parse_args()
 
 # Those previous values are not available as an ASCII file:
@@ -134,7 +134,10 @@ header = True
 nb_constants = 0
 
 for line in lines_list:
-    line2 = line.replace("\n", "")
+    if ARGS.y[0] == 2010:
+        line2 = line.replace("\r\n", "")
+    else:
+        line2 = line.replace("\n", "")
 
     if header:
         # The Fortran test file will print the same header:
@@ -173,7 +176,7 @@ for line in lines_list:
 
         # Test: print the value in a txt file, trying to mimick the CODATA format:
         result = get_number_parts(value)
-        print(value, result)
+        #print(value, result)
         left = result[0]
         right = result[1]
         expo = result[2]
