@@ -92,8 +92,7 @@ contains
         real (wp), intent(in)     :: constant
         integer, intent(in)       :: left, nb_decimals, expo_out
         character (len=10) :: fm
-        real(wp)           :: constant2
-        integer            :: expo_in, expo_pos, plus_pos
+        integer            :: expo_in, expo_pos, plus_pos, nb_decimals2
         character(25)      :: string
 
         ! Is there an exponent in the CODATA listing?
@@ -112,15 +111,18 @@ contains
             ! Computing the exponent of the Fortran value:
             expo_in = floor(log10(abs(constant)))
 
-            constant2 = constant
+            nb_decimals2 = nb_decimals
             if (expo_in /= expo_out) then
-                ! We want the same exponent as in the CODATA listing:
-                constant2 = constant2 * 10.0_wp**(expo_out - expo_in)
+                ! For those few (~6) constants, it would be difficult to print
+                ! them with the same exponent as in the CODATA listing, so
+                ! we let Fortran deal with the exponent and we change the
+                ! number of decimals:
+                nb_decimals2 = nb_decimals2 + (expo_in - expo_out)
             end if
 
             ! A format corresponding to the CODATA listing:
-            write(fm,'("es25.",i0)') nb_decimals
-            write(string, '(' // trim(fm) // ')') constant2
+            write(fm,'("es25.",i0)') nb_decimals2
+            write(string, '(' // trim(fm) // ')') constant
             ! By default, Fortran numbers are right adjusted:
             string = adjustl(string)
             ! Remove the zeros beginning the value of the exponent:
