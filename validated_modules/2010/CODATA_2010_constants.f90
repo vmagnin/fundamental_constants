@@ -1,11 +1,11 @@
 !-------------------------------------------------------------------------------
-! CODATA_constants.f90
+! CODATA_2010_constants.f90
 ! Automatically generated from 2010 CODATA NIST file:
 ! https://physics.nist.gov/cuu/Constants/allascii_2010.txt
 ! downloaded on 2021-03-23.
 !-------------------------------------------------------------------------------
 
-module CODATA_constants
+module CODATA_2010_constants
   use, intrinsic :: iso_fortran_env, only: wp=>real64
   implicit none
 
@@ -344,4 +344,4 @@ module CODATA_constants
   real(wp), parameter :: weak_mixing_angle = 0.2223_wp ! 0.0021  
   real(wp), parameter :: Wien_frequency_displacement_law_constant = 5.8789254e10_wp ! 0.000 0053 e10  Hz K^-1
   real(wp), parameter :: Wien_wavelength_displacement_law_constant = 2.8977721e-3_wp ! 0.000 0026 e-3  m K
-end module CODATA_constants
+end module CODATA_2010_constants

@@ -1,11 +1,11 @@
 !-------------------------------------------------------------------------------
-! CODATA_constants.f90
+! CODATA_2018_constants.f90
 ! Automatically generated from 2018 CODATA NIST file:
 ! https://physics.nist.gov/cuu/Constants/Table/allascii.txt
 ! downloaded on 2021-03-22.
 !-------------------------------------------------------------------------------
 
-module CODATA_constants
+module CODATA_2018_constants
   use, intrinsic :: iso_fortran_env, only: wp=>real64
   implicit none
 
@@ -363,4 +363,4 @@ module CODATA_constants
   real(wp), parameter :: Wien_frequency_displacement_law_constant = 5.878925757e10_wp ! (exact)  Hz K^-1
   real(wp), parameter :: Wien_wavelength_displacement_law_constant = 2.897771955e-3_wp ! (exact)  m K
   real(wp), parameter :: W_to_Z_mass_ratio = 0.88153_wp ! 0.000 17  
-end module CODATA_constants
+end module CODATA_2018_constants
