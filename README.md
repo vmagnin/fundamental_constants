@@ -125,6 +125,6 @@ You can use alternatively the `build.sh` script to build the `build/runTests` ex
     * https://physics.nist.gov/cuu/Constants/bibliography.html
     * https://en.wikipedia.org/wiki/Committee_on_Data_for_Science_and_Technology
 * NIST website: https://physics.nist.gov/cuu/Constants/
-* If you need a more complete project around constants, you may be intested by:
+* If you need a more complete project around constants, you may be interested by:
     * https://gitlab.com/apthorpe/stdlib-codata
     * https://github.com/MolSSI/QCElemental
