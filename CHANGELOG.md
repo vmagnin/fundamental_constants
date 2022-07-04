@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Added
 - Exceptions are managed when downloading the NIST files.
 
+## Fixed
+- Updated the URLs of the 2014 and 2010 NIST files (now in an 'ArchiveASCII' directory).
+
 
 ## [fundamental constants v1.1] 2021-04-03
 

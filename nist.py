@@ -76,9 +76,9 @@ ARGS = PARSARG.parse_args()
 if ARGS.y[0] == 2018:
     url = "https://physics.nist.gov/cuu/Constants/Table/allascii.txt"
 elif ARGS.y[0] == 2014:
-    url = "https://physics.nist.gov/cuu/Constants/Table/allascii_2014.txt"
+    url = "https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2014.txt"
 elif ARGS.y[0] == 2010:
-    url = "https://physics.nist.gov/cuu/Constants/allascii_2010.txt"
+    url = "https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2010.txt"
 
 # Downloading the file from NIST website:
 try:
