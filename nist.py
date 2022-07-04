@@ -7,13 +7,14 @@ and also a test.f90 file that can be used to validate the process.
 Contributed by Vincent MAGNIN, 2021-03-11
 MIT license
 https://github.com/vmagnin/fundamental_constants
-Last modifications: 2021-03-23
+Last modifications: 2022-07-04
 '''
 
 import argparse
 import os
 import datetime
-from urllib.request import urlopen
+import sys
+from urllib.request import urlopen, HTTPError, URLError
 
 def get_number_parts(xstring):
     '''
@@ -80,9 +81,18 @@ elif ARGS.y[0] == 2010:
     url = "https://physics.nist.gov/cuu/Constants/allascii_2010.txt"
 
 # Downloading the file from NIST website:
-with urlopen(url) as nist_file:
+try:
+    nist_file = urlopen(url)
     file_content = nist_file.read().decode('utf-8')
     lines_list = file_content.splitlines(True)
+except HTTPError as err:
+    err.close()
+    print('urlopen({0}) failed, HTTP code: {1}'.format(url, err.code))
+    print('The URL may have been modified on the NIST website...')
+    sys.exit(1)
+except URLError as err:
+    print('urlopen({0}) error, error reason: {1}'.format(url, err.reason))
+    sys.exit(2)
 
 # Creating the .f90 file:
 MODULE_NAME = "CODATA_constants"
