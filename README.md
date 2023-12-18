@@ -6,7 +6,7 @@ The `nist.py` Python script downloads the CODATA recommended values (latest by d
 
 https://physics.nist.gov/cuu/Constants/Table/allascii.txt
 
-and generates a Fortran `module CODATA_constants` in the file `src/CODATA_constants.f90`. The 2018 CODATA set contains 354 constants. The next set should be published in 2022.
+and generates a Fortran `module CODATA_constants` in the file `src/CODATA_constants.f90`. The 2018 CODATA set contains 354 constants. The next set (CODATA 2022) should be published in 2023.
 
 It also generates a Fortran program `test/test.f90` which uses that module to generate a text file reproducing the two first columns, with (nearly) the same formatting as in the CODATA NIST file.
 
