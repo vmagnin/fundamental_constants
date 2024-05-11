@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to the project will be documented in this file.
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [fundamental constants v1.3] 2024
+
+## Added
+- Updated with the 2022 CODATA values.
 
 
 ## [fundamental constants v1.2] 2022-07-04

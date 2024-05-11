@@ -7,7 +7,7 @@ and also a test.f90 file that can be used to validate the process.
 Contributed by Vincent MAGNIN, 2021-03-11
 MIT license
 https://github.com/vmagnin/fundamental_constants
-Last modifications: 2022-07-04
+Last modifications: 2022-07-04, 2024-05-10
 '''
 
 import argparse
@@ -62,19 +62,21 @@ PARSARG = argparse.ArgumentParser(description="""Downloads CODATA recommended
                                   website and generates a Fortran module.""",
                                   epilog="Sources : <https://github.com/vmagnin/fundamental_constants>")
 PARSARG.add_argument("-y", action="store", nargs=1, type=int,
-                     choices=[2010, 2014, 2018], default=[2018],
-                     help="CODATA values: 2010, 2014 or 2018")
+                     choices=[2010, 2014, 2018, 2022], default=[2022],
+                     help="CODATA values: 2010, 2014, 2018 or 2022")
 PARSARG.add_argument("-d", action="store_true",
                      help="Delete calculated values (...)")
 PARSARG.add_argument("-v", action="version",
-                     version="%(prog)s v1.0 MIT license", help="Version")
+                     version="%(prog)s v1.3 MIT license", help="Version")
 ARGS = PARSARG.parse_args()
 
 # Those previous values are not available as an ASCII file:
 # 2006, 2002, 1998, 1986, 1973, 1969.
-# Next version should be released in 2022.
-if ARGS.y[0] == 2018:
+# The next release will be 2026 CODATA (in 2027?).
+if ARGS.y[0] == 2022:
     url = "https://physics.nist.gov/cuu/Constants/Table/allascii.txt"
+elif ARGS.y[0] == 2018:
+    url = "https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2018.txt"
 elif ARGS.y[0] == 2014:
     url = "https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2014.txt"
 elif ARGS.y[0] == 2010:
@@ -132,8 +134,8 @@ test_file.write("\nmodule " + TEST_MODULE_NAME + "\n" + TABS +
 #-------------------------------------------------------------------------------
 # Format description of the NIST allascii.txt file:
 #
-# Header:   11 lines in the 2018 version, 10 lines in the 2010 & 2014 versions,
-#           last line being composed of 125 "-"
+# Header:   11 lines in the 2022 and 2018 version, 10 lines in the 2010 & 2014
+#           versions, its last line being composed of 125 "-"
 # Column 1: Quantity = constant name (60 characters)
 # Column 2: Value (25 characters)
 # Column 3: Uncertainty (25 characters)

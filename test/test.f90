@@ -8,12 +8,12 @@ module test
 contains
 subroutine tests
 character(125) :: s
-open(unit = 1, file = 'fortran_generated_2018.txt')
+open(unit = 1, file = 'fortran_generated_2022.txt')
 s=''
 write(1,'(a)') trim(s)
 s='             Fundamental Physical Constants --- Complete Listing'
 write(1,'(a)') trim(s)
-s='             2018 CODATA adjustment'
+s='             2022 CODATA adjustment'
 write(1,'(a)') trim(s)
 s=''
 write(1,'(a)') trim(s)
@@ -44,9 +44,11 @@ call write_CODATA('alpha particle mass in u                                    '
 call write_CODATA('alpha particle molar mass                                   ', &
   & alpha_particle_molar_mass, 1, 10, -3)
 call write_CODATA('alpha particle-proton mass ratio                            ', &
-  & alpha_particle_proton_mass_ratio, 1, 11, 0)
+  & alpha_particle_proton_mass_ratio, 1, 12, 0)
 call write_CODATA('alpha particle relative atomic mass                         ', &
   & alpha_particle_relative_atomic_mass, 1, 12, 0)
+call write_CODATA('alpha particle rms charge radius                            ', &
+  & alpha_particle_rms_charge_radius, 1, 4, -15)
 call write_CODATA('Angstrom star                                               ', &
   & Angstrom_star, 1, 8, -10)
 call write_CODATA('atomic mass constant                                        ', &
@@ -80,7 +82,7 @@ call write_CODATA('atomic unit of charge                                       '
 call write_CODATA('atomic unit of charge density                               ', &
   & atomic_unit_of_charge_density, 1, 11, 12)
 call write_CODATA('atomic unit of current                                      ', &
-  & atomic_unit_of_current, 1, 12, -3)
+  & atomic_unit_of_current, 1, 13, -3)
 call write_CODATA('atomic unit of electric dipole mom.                         ', &
   & atomic_unit_of_electric_dipole_mom_, 1, 10, -30)
 call write_CODATA('atomic unit of electric field                               ', &
@@ -168,7 +170,7 @@ call write_CODATA('Copper x unit                                               '
 call write_CODATA('deuteron-electron mag. mom. ratio                           ', &
   & deuteron_electron_mag__mom__ratio, 1, 9, -4)
 call write_CODATA('deuteron-electron mass ratio                                ', &
-  & deuteron_electron_mass_ratio, 4, 8, 0)
+  & deuteron_electron_mass_ratio, 4, 9, 0)
 call write_CODATA('deuteron g factor                                           ', &
   & deuteron_g_factor, 1, 10, 0)
 call write_CODATA('deuteron mag. mom.                                          ', &
@@ -192,7 +194,7 @@ call write_CODATA('deuteron-neutron mag. mom. ratio                            '
 call write_CODATA('deuteron-proton mag. mom. ratio                             ', &
   & deuteron_proton_mag__mom__ratio, 1, 11, 0)
 call write_CODATA('deuteron-proton mass ratio                                  ', &
-  & deuteron_proton_mass_ratio, 1, 11, 0)
+  & deuteron_proton_mass_ratio, 1, 13, 0)
 call write_CODATA('deuteron relative atomic mass                               ', &
   & deuteron_relative_atomic_mass, 1, 12, 0)
 call write_CODATA('deuteron rms charge radius                                  ', &
@@ -218,7 +220,7 @@ call write_CODATA('electron mag. mom. anomaly                                  '
 call write_CODATA('electron mag. mom. to Bohr magneton ratio                   ', &
   & electron_mag__mom__to_Bohr_magneton_ratio, 1, 14, 0)
 call write_CODATA('electron mag. mom. to nuclear magneton ratio                ', &
-  & electron_mag__mom__to_nuclear_magneton_ratio, 4, 8, 0)
+  & electron_mag__mom__to_nuclear_magneton_ratio, 4, 9, 0)
 call write_CODATA('electron mass                                               ', &
   & electron_mass, 1, 10, -31)
 call write_CODATA('electron mass energy equivalent                             ', &
@@ -226,7 +228,7 @@ call write_CODATA('electron mass energy equivalent                             '
 call write_CODATA('electron mass energy equivalent in MeV                      ', &
   & electron_mass_energy_equivalent_in_MeV, 1, 11, 0)
 call write_CODATA('electron mass in u                                          ', &
-  & electron_mass_in_u, 1, 11, -4)
+  & electron_mass_in_u, 1, 12, -4)
 call write_CODATA('electron molar mass                                         ', &
   & electron_molar_mass, 1, 10, -7)
 call write_CODATA('electron-muon mag. mom. ratio                               ', &
@@ -240,15 +242,15 @@ call write_CODATA('electron-neutron mass ratio                                 '
 call write_CODATA('electron-proton mag. mom. ratio                             ', &
   & electron_proton_mag__mom__ratio, 3, 8, 0)
 call write_CODATA('electron-proton mass ratio                                  ', &
-  & electron_proton_mass_ratio, 1, 11, -4)
+  & electron_proton_mass_ratio, 1, 12, -4)
 call write_CODATA('electron relative atomic mass                               ', &
-  & electron_relative_atomic_mass, 1, 11, -4)
+  & electron_relative_atomic_mass, 1, 12, -4)
 call write_CODATA('electron-tau mass ratio                                     ', &
   & electron_tau_mass_ratio, 1, 5, -4)
 call write_CODATA('electron to alpha particle mass ratio                       ', &
   & electron_to_alpha_particle_mass_ratio, 1, 12, -4)
 call write_CODATA('electron to shielded helion mag. mom. ratio                 ', &
-  & electron_to_shielded_helion_mag__mom__ratio, 3, 6, 0)
+  & electron_to_shielded_helion_mag__mom__ratio, 3, 8, 0)
 call write_CODATA('electron to shielded proton mag. mom. ratio                 ', &
   & electron_to_shielded_proton_mag__mom__ratio, 3, 7, 0)
 call write_CODATA('electron-triton mass ratio                                  ', &
@@ -292,7 +294,7 @@ call write_CODATA('Hartree energy                                              '
 call write_CODATA('Hartree energy in eV                                        ', &
   & Hartree_energy_in_eV, 2, 12, 0)
 call write_CODATA('hartree-hertz relationship                                  ', &
-  & hartree_hertz_relationship, 1, 12, 15)
+  & hartree_hertz_relationship, 1, 13, 15)
 call write_CODATA('hartree-inverse meter relationship                          ', &
   & hartree_inverse_meter_relationship, 1, 13, 7)
 call write_CODATA('hartree-joule relationship                                  ', &
@@ -304,13 +306,13 @@ call write_CODATA('hartree-kilogram relationship                               '
 call write_CODATA('helion-electron mass ratio                                  ', &
   & helion_electron_mass_ratio, 4, 8, 0)
 call write_CODATA('helion g factor                                             ', &
-  & helion_g_factor, 1, 9, 0)
+  & helion_g_factor, 1, 10, 0)
 call write_CODATA('helion mag. mom.                                            ', &
-  & helion_mag__mom_, 1, 9, -26)
+  & helion_mag__mom_, 1, 11, -26)
 call write_CODATA('helion mag. mom. to Bohr magneton ratio                     ', &
-  & helion_mag__mom__to_Bohr_magneton_ratio, 1, 9, -3)
+  & helion_mag__mom__to_Bohr_magneton_ratio, 1, 11, -3)
 call write_CODATA('helion mag. mom. to nuclear magneton ratio                  ', &
-  & helion_mag__mom__to_nuclear_magneton_ratio, 1, 9, 0)
+  & helion_mag__mom__to_nuclear_magneton_ratio, 1, 10, 0)
 call write_CODATA('helion mass                                                 ', &
   & helion_mass, 1, 10, -27)
 call write_CODATA('helion mass energy equivalent                               ', &
@@ -322,11 +324,11 @@ call write_CODATA('helion mass in u                                            '
 call write_CODATA('helion molar mass                                           ', &
   & helion_molar_mass, 1, 11, -3)
 call write_CODATA('helion-proton mass ratio                                    ', &
-  & helion_proton_mass_ratio, 1, 11, 0)
+  & helion_proton_mass_ratio, 1, 12, 0)
 call write_CODATA('helion relative atomic mass                                 ', &
   & helion_relative_atomic_mass, 1, 12, 0)
 call write_CODATA('helion shielding shift                                      ', &
-  & helion_shielding_shift, 1, 6, -5)
+  & helion_shielding_shift, 1, 7, -5)
 call write_CODATA('hertz-atomic mass unit relationship                         ', &
   & hertz_atomic_mass_unit_relationship, 1, 10, -24)
 call write_CODATA('hertz-electron volt relationship                            ', &
@@ -438,7 +440,7 @@ call write_CODATA('muon Compton wavelength                                     '
 call write_CODATA('muon-electron mass ratio                                    ', &
   & muon_electron_mass_ratio, 3, 7, 0)
 call write_CODATA('muon g factor                                               ', &
-  & muon_g_factor, 1, 10, 0)
+  & muon_g_factor, 1, 11, 0)
 call write_CODATA('muon mag. mom.                                              ', &
   & muon_mag__mom_, 1, 8, -26)
 call write_CODATA('muon mag. mom. anomaly                                      ', &
@@ -566,7 +568,7 @@ call write_CODATA('proton charge to mass quotient                              '
 call write_CODATA('proton Compton wavelength                                   ', &
   & proton_Compton_wavelength, 1, 11, -15)
 call write_CODATA('proton-electron mass ratio                                  ', &
-  & proton_electron_mass_ratio, 4, 8, 0)
+  & proton_electron_mass_ratio, 4, 9, 0)
 call write_CODATA('proton g factor                                             ', &
   & proton_g_factor, 1, 10, 0)
 call write_CODATA('proton gyromag. ratio                                       ', &
@@ -580,7 +582,7 @@ call write_CODATA('proton mag. mom. to Bohr magneton ratio                     '
 call write_CODATA('proton mag. mom. to nuclear magneton ratio                  ', &
   & proton_mag__mom__to_nuclear_magneton_ratio, 1, 11, 0)
 call write_CODATA('proton mag. shielding correction                            ', &
-  & proton_mag__shielding_correction, 1, 4, -5)
+  & proton_mag__shielding_correction, 1, 5, -5)
 call write_CODATA('proton mass                                                 ', &
   & proton_mass, 1, 11, -27)
 call write_CODATA('proton mass energy equivalent                               ', &
@@ -588,7 +590,7 @@ call write_CODATA('proton mass energy equivalent                               '
 call write_CODATA('proton mass energy equivalent in MeV                        ', &
   & proton_mass_energy_equivalent_in_MeV, 3, 8, 0)
 call write_CODATA('proton mass in u                                            ', &
-  & proton_mass_in_u, 1, 12, 0)
+  & proton_mass_in_u, 1, 13, 0)
 call write_CODATA('proton molar mass                                           ', &
   & proton_molar_mass, 1, 11, -3)
 call write_CODATA('proton-muon mass ratio                                      ', &
@@ -598,9 +600,9 @@ call write_CODATA('proton-neutron mag. mom. ratio                              '
 call write_CODATA('proton-neutron mass ratio                                   ', &
   & proton_neutron_mass_ratio, 1, 11, 0)
 call write_CODATA('proton relative atomic mass                                 ', &
-  & proton_relative_atomic_mass, 1, 12, 0)
+  & proton_relative_atomic_mass, 1, 13, 0)
 call write_CODATA('proton rms charge radius                                    ', &
-  & proton_rms_charge_radius, 1, 3, -16)
+  & proton_rms_charge_radius, 1, 4, -16)
 call write_CODATA('proton-tau mass ratio                                       ', &
   & proton_tau_mass_ratio, 1, 6, 0)
 call write_CODATA('quantum of circulation                                      ', &
@@ -638,17 +640,17 @@ call write_CODATA('Sackur-Tetrode constant (1 K, 101.325 kPa)                  '
 call write_CODATA('second radiation constant                                   ', &
   & second_radiation_constant, 1, 9, -2)
 call write_CODATA('shielded helion gyromag. ratio                              ', &
-  & shielded_helion_gyromag__ratio, 1, 9, 8)
+  & shielded_helion_gyromag__ratio, 1, 10, 8)
 call write_CODATA('shielded helion gyromag. ratio in MHz/T                     ', &
-  & shielded_helion_gyromag__ratio_in_MHz_T, 2, 8, 0)
+  & shielded_helion_gyromag__ratio_in_MHz_T, 2, 9, 0)
 call write_CODATA('shielded helion mag. mom.                                   ', &
-  & shielded_helion_mag__mom_, 1, 9, -26)
+  & shielded_helion_mag__mom_, 1, 11, -26)
 call write_CODATA('shielded helion mag. mom. to Bohr magneton ratio            ', &
-  & shielded_helion_mag__mom__to_Bohr_magneton_ratio, 1, 9, -3)
+  & shielded_helion_mag__mom__to_Bohr_magneton_ratio, 1, 11, -3)
 call write_CODATA('shielded helion mag. mom. to nuclear magneton ratio         ', &
-  & shielded_helion_mag__mom__to_nuclear_magneton_ratio, 1, 9, 0)
+  & shielded_helion_mag__mom__to_nuclear_magneton_ratio, 1, 10, 0)
 call write_CODATA('shielded helion to proton mag. mom. ratio                   ', &
-  & shielded_helion_to_proton_mag__mom__ratio, 1, 10, 0)
+  & shielded_helion_to_proton_mag__mom__ratio, 1, 11, 0)
 call write_CODATA('shielded helion to shielded proton mag. mom. ratio          ', &
   & shielded_helion_to_shielded_proton_mag__mom__ratio, 1, 10, 0)
 call write_CODATA('shielded proton gyromag. ratio                              ', &
@@ -656,15 +658,15 @@ call write_CODATA('shielded proton gyromag. ratio                              '
 call write_CODATA('shielded proton gyromag. ratio in MHz/T                     ', &
   & shielded_proton_gyromag__ratio_in_MHz_T, 2, 8, 0)
 call write_CODATA('shielded proton mag. mom.                                   ', &
-  & shielded_proton_mag__mom_, 1, 9, -26)
+  & shielded_proton_mag__mom_, 1, 10, -26)
 call write_CODATA('shielded proton mag. mom. to Bohr magneton ratio            ', &
-  & shielded_proton_mag__mom__to_Bohr_magneton_ratio, 1, 9, -3)
+  & shielded_proton_mag__mom__to_Bohr_magneton_ratio, 1, 10, -3)
 call write_CODATA('shielded proton mag. mom. to nuclear magneton ratio         ', &
   & shielded_proton_mag__mom__to_nuclear_magneton_ratio, 1, 9, 0)
 call write_CODATA('shielding difference of d and p in HD                       ', &
-  & shielding_difference_of_d_and_p_in_HD, 1, 4, -8)
+  & shielding_difference_of_d_and_p_in_HD, 1, 5, -8)
 call write_CODATA('shielding difference of t and p in HT                       ', &
-  & shielding_difference_of_t_and_p_in_HT, 1, 4, -8)
+  & shielding_difference_of_t_and_p_in_HT, 1, 5, -8)
 call write_CODATA('speed of light in vacuum                                    ', &
   & speed_of_light_in_vacuum, 9, 0, 0)
 call write_CODATA('standard acceleration of gravity                            ', &
