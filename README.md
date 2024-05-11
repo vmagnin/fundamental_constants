@@ -59,7 +59,7 @@ Note also that the names of some constants may vary from one CODATA adjustement 
 
 You can cite:
 
-> Mohr, P. , Tiesinga, E. , Newell, D. and Taylor, B. (2024), Codata Internationally Reconmmended 2022 Values of the Fundamental Physical Constants, Codata Internationally Recommended 2022 Values of the Fundamental Physical Constants, [online], https://physics.nist.gov/constants (Accessed XXXXXXXXXX)
+> Mohr, P. , Tiesinga, E. , Newell, D. and Taylor, B. (2024), Codata Internationally Recommended 2022 Values of the Fundamental Physical Constants, Codata Internationally Recommended 2022 Values of the Fundamental Physical Constants, [online], https://physics.nist.gov/constants (Accessed XXXXXXXXXX)
 
 
 ## Why several modules?
