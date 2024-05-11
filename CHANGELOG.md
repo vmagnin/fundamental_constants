@@ -2,10 +2,11 @@
 All notable changes to the project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [fundamental constants v1.3] 2024
+## [fundamental constants v1.3] 2024-05-11
 
 ## Added
 - Updated with the 2022 CODATA values.
+- A `CHECKLIST_FOR_UPDATE.md` file to follow every four years.
 
 
 ## [fundamental constants v1.2] 2022-07-04
