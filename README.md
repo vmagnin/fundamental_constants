@@ -57,6 +57,11 @@ You can create your own short module with a `use CODATA_latest_constants` statem
 
 Note also that the names of some constants may vary from one CODATA adjustement to another. Our project does not track those modifications.
 
+You can cite:
+
+> Mohr, P. , Tiesinga, E. , Newell, D. and Taylor, B. (2024), Codata Internationally Reconmmended 2022 Values of the Fundamental Physical Constants, Codata Internationally Recommended 2022 Values of the Fundamental Physical Constants, [online], https://physics.nist.gov/constants (Accessed XXXXXXXXXX)
+
+
 ## Why several modules?
 
 Most of the time you will use the latest values. But if you need to reproduce exactly the results obtained several years ago, you may need to use the corresponding CODATA set. It can be also useful if your project contains tests that expect a very precise numerical result.
