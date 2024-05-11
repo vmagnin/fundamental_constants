@@ -20,7 +20,7 @@ In the `src/` directory, you will find for each recent CODATA sets:
 - the `fortran_generated_????.txt` file generated using this module. A graphical diff tool was used to verify that the numbers printed in that file are identical to numbers in the NIST file, which validates the Fortran module,
 - the `CODATA_latest_constants.f90` module, if you are only interested by the latest set.
 
-There are ways to use this project:
+There are three ways to use this project:
 - as a fpm (Fortran Package Manager) dependency by adding in your `fpm.toml` file:
 
 ```toml
@@ -55,7 +55,7 @@ use CODATA_latest_constants, only: c=>speed_of_light_in_vacuum
 
 You can create your own short module with a `use CODATA_latest_constants` statement and put into it your renamed favourite constants, accordingly to what you generally need in your scientific field.
 
-Note also that the names of some constants may vary from one CODATA adjustement to another. Our project does not track those modifications.
+Note also that the names of some constants may vary from one CODATA adjustement to another. Our project does not track those (rare) modifications.
 
 You can cite:
 
